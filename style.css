@@ -1,0 +1,126 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none !important;
+}
+
+body {
+  height: 100vh;
+}
+
+.game-section {
+  display: flex;
+}
+
+.splash {
+  text-align: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 250;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: #eceff1;
+  box-shadow: 0 5px 50px #aaa;
+}
+
+.splash .center {
+  width: 100%;
+  margin: auto;
+  padding: 165px 15px 15px;
+  background: url(img/disney-plus.svg) center top no-repeat;
+  background-size: 180px;
+}
+
+.splash .center h1 {
+  margin: 0 0 20px;
+  font-family: "Sigmar One";
+  font-size: 3em;
+  font-weight: normal;
+  color: #393e8f;
+  -webkit-text-stroke: 2px #12194a;
+}
+
+.splash .center button {
+  margin-top: 30px;
+  padding: 15px 30px;
+  font-size: 1.25em;
+  line-height: 1em;
+  background: #393e8f;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 8px 0 #12194a;
+}
+
+.splash .center button:active {
+  transform: translateY(8px);
+  box-shadow: none;
+}
+
+.memory-game {
+  width: 620px;
+  height: 620px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: #113ccf;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+#reset {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 100;
+  padding: 10px 20px;
+  line-height: 1em;
+  color: #6869a1;
+  font-size: 0.8em;
+  border: dashed 2px #393939;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+#reset:hover {
+  background-color: #113ccf;
+  color: #fff;
+  border: none;
+}
